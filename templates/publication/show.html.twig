@@ -1,0 +1,17 @@
+{# templates/publication/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publication</h1>
+
+    <dl>
+        <dt>Title</dt>
+        <dd>{{ publication.title }}</dd>
+
+        <dt>Event</dt>
+        <dd>{{ publication.evenement.title }}</dd>
+    </dl>
+
+    <a href="{{ path('publication_index') }}">Back to the list</a>
+{% endblock %}

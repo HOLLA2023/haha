@@ -1,12 +1,5 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
-parameters:
-
 services:
-    # default configuration for services in *this* file
+    # default configuration for services in this file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
@@ -19,6 +12,20 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+            - '../src/Tests/'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # please note that last definitions always replace previous ones
+    twilio.client:
+        class: Twilio\Rest\Client
+        arguments: [ 'ACd4cf9c843ad1f762c1c8f2d96633b4af', 'e7a1ebd5567a0a76a2ea4178e5673dd7' ]
+
+        # Add an alias for the twilio.client service
+    Twilio\Rest\Client: '@twilio.client'
+

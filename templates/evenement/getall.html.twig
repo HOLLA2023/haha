@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Evenement List</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.42em;
+            color: #ffffff;
+            background-color: #282c34;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 300;
+            line-height: 1em;
+            text-align: center;
+            color: #4DC3FA;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #1F2739;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            color: #A7A1AE;
+        }
+
+        th {
+            background-color: #1F2739;
+            color: #4DC3FA;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #464A52;
+            box-shadow: 0 6px 6px -6px #0E1119;
+            transition: all 0.3s ease;
+        }
+
+        a {
+            color: #4DC3FA;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+  <h1 style="color: #FB667A;">Evenement List</h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Event Date</th>
+                <th>Event Type</th>
+                <th>Event Description</th>
+                 <th>Actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.dateevenement|date }}</td>
+                    <td>{{ event.choixevenement }}</td>
+                    <td>{{ event.descriptionevenement }}</td>
+                   <td><a href="#">Participer</a></td>
+ 
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">No records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        
+    </p>
+</body>
+</html>

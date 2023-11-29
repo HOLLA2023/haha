@@ -1,0 +1,31 @@
+{# templates/publication/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publication List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Event</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for publication in publications %}
+                <tr>
+                    <td>{{ publication.title }}</td>
+                    <td>{{ publication.evenement.title }}</td>
+                    <td>
+                        <a href="{{ path('publication_show', {'id': publication.id}) }}">Show</a>
+                        <a href="{{ path('publication_edit', {'id': publication.id}) }}">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_new') }}">Create new publication</a>
+{% endblock %}
