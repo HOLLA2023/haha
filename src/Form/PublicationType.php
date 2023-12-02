@@ -33,6 +33,7 @@ class PublicationType extends AbstractType
                     'Foot' => 'Foot',
                     // Add other choices as needed
                 ],
+                'placeholder'=>'',
                 'attr' => ['class' => 'form-select'],
             ]);
     }

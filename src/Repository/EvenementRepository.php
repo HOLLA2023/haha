@@ -28,7 +28,7 @@ class EvenementRepository extends ServiceEntityRepository
             ->setParameter('choixEvenement', $choixEvenement)
             ->getQuery()
             ->getSingleScalarResult();
-    }
+    } 
 //    /**
 //     * @return Evenement[] Returns an array of Evenement objects
 //     */

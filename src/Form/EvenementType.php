@@ -21,10 +21,9 @@ class EvenementType extends AbstractType
                     'Marche' => 'Marche',
                     'Cardio' => 'Cardio',
                     'Musculaton' => 'Musculation',
-                    'Foot' => 'Foot'
-                    
-                    
+                    'Foot' => 'Foot',
                 ],
+                'placeholder'=>'',
                 'attr' => ['class' => 'form-select'],   
             ])
             ->add('description_evenement')
