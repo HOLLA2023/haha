@@ -20,9 +20,7 @@ class PublicationType extends AbstractType
             ->add('nom_utilisateur', TextType::class, [
                 'label' => 'Nom Utilisateur',
             ])
-            ->add('choix_evenement', TextType::class, [
-                'label' => 'Choix Evenement',
-            ])
+           
             ->add('evenement', ChoiceType::class, [
                 'label' => 'Evenement',
                 'choices' => [
